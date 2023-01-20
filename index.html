@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <title>Scottify</title>
+</head>
+
+<body>
+    <header>
+        <h1>&#9835</h1>
+        <h1>Scottify</h1>
+        <nav>
+            <button class="nav-button" id="playlistBtn">Playlist</button>
+            <button class="hide nav-button" id="close">Close View</button>
+            <div class="dropdown">
+                <button class="dropbtn" id="creditButton">Credit</button>
+                <div id="credit" class="dropdown-content">
+                    <a href="#">Daniel Bahrami & Scott Charles</a>
+                    <a href="https://github.com/danielbram4/3612Asg2">Github url link</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="window" id="browseSongsView">
+        <div class="sideBar" id="songSearch">
+            <h2>Search</h2>
+            <form>
+                <div class="searchGroup">
+                    <input type="radio" name="basicSongSearchButton" value="title" checked>
+                    <label>Title</label>
+                    <input id="titleSearch" type="text" name="title"><br>
+                </div>
+                <div class="searchGroup">
+                    <input type="radio" name="basicSongSearchButton" value="artist">
+                    <label>Artist</label>
+                    <select id="artistSearch" name="artist" disabled></select><br>
+                        
+                </div>
+                <div class="searchGroup">
+                    <input type="radio" name="basicSongSearchButton" value="genre">
+                    <label>Genre</label>
+                    <select id="genreSearch" name="genre" disabled></select><br>
+                </div>
+            </form>
+            <div class="buttonBlock">
+                <button id="clearButton">Clear</button>
+                <button id="searchButton">Filter</button>
+            </div>
+
+        </div>
+        <div id="songTable">
+            <table class="songTable">
+                <thead>
+                    <th>Title <img id="sortIconTitle" src="assets/images/sort-down-solid.svg"></th>
+                    <th>Artist <img id="sortIconArtist" src="assets/images/sort-down-solid.svg"></th>
+                    <th>Year <img id="sortIconYear" src="assets/images/sort-down-solid.svg"></th>
+                    <th>Genre <img id="sortIconGenre" src="assets/images/sort-down-solid.svg"></th>
+                    <th>Popularity <img id="sortIconPop" src="assets/images/sort-down-solid.svg"></th>
+                    <th></th>
+                </thead>
+                <div class="tBody">
+                    <tbody>
+                    </tbody>
+                </div>
+            </table>
+        </div>
+    </div>
+
+    <div class="window hide" id="singleSongView">
+        <div class="sideBar" id="songInfo">
+            <h2></h2>
+            <p></p>
+            <h2>Analysis Data:</h2>
+            <ul>
+                <li id="bpm"></li>
+                <li id="energy"></li>
+                <li id="danceability"></li>
+                <li id="liveness"></li>
+                <li id="valence"></li>
+                <li id="acousticness"></li>
+                <li id="speechiness"></li>
+                <li id="loudness"></li>
+                <li id="popularity"></li>
+            </ul>
+            
+
+        </div>
+        <div id="radarChart">
+
+        </div>
+    </div>
+
+    <div class="window hide" id="playlistView">
+        <div class="subHeader sideBar">
+            <h2>Playlist Details</h2>
+            <ul>
+                <li>Number of Songs: <span id="numSongs"></span></li>
+                <li>Average Popularity: <span id="avgPop"></span></li>
+            </ul>
+            <button id="clearPlaylist">Clear Playlist</button>
+        </div>
+        <div id="playlistTable">
+            <table class="songTable table">
+                <thead>
+                    <th>Title</th>
+                    <th>Artist</th>
+                    <th>Year</th>
+                    <th>Genre</th>
+                    <th>Popularity</th>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+
+    <div id="snackbar">Added to Playlist!</div>
+
+    <footer>
+        &copy 2022, Dan & Scott
+    </footer>
+
+    <script src="js/scottify.js" type="text/JavaScript"></script>
+</body>
+
+</html>

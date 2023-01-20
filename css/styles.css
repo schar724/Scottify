@@ -1,0 +1,311 @@
+/*Inspiration taken from https://www.w3schools.com/howto/howto_css_dropdown.asp*/
+/* Dropdown Button */
+:root {
+  --primary: #001315;
+  --secondary: #003f59;
+  --secondary-hover: #06587b;
+  --tertiary: #ff8c50;
+  --accent1: #ff8f53;
+  --accent2: #faaa68;
+  --headers: #ff762d;
+}
+
+body {
+  height: 45vw;
+  width: 80vw;
+  background: #003f59;
+  font-family: 'Roboto Mono', monospace;
+  color: var(--tertiary);
+}
+
+button {
+  background-color: var(--accent1);
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px #001315;
+  font-family: 'Roboto Mono', monospace;
+  padding: .75em 1em;
+}
+
+.addBtn,
+.removeBtn {
+  padding: 5px 10px;
+  margin: 3px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--secondary);
+  min-width: 160px;
+  box-shadow: 0 3px 10px #001315;
+  z-index: 2;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: var(--tertiary);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: var(--secondary-hover);
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+button:hover {
+  background-color: var(--accent2);
+  cursor: pointer;
+}
+
+header h1 {
+  display: inline;
+}
+
+h1,
+h2 {
+  color: var(--headers)
+}
+
+header {
+  height: 10%;
+}
+
+nav {
+  float: right;
+}
+
+.window {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  display: grid;
+  grid-template-columns: .27fr 1fr;
+  grid-gap: 20px;
+}
+
+.sideBar {
+  padding: 10px;
+  background: #003f59;
+  border-radius: 5px;
+  box-shadow: 0 3px 10px #001315;
+  min-height: 40rem;
+  max-height: 40rem;
+}
+
+select {
+  font-family: 'Roboto Mono', monospace;
+  background-color: #003f59;
+  color: #ff762d;
+  border-radius: 2px;
+}
+
+.buttonBlock,
+button#clearPlaylist {
+  position: fixed;
+  align-self: center;
+  margin-top: 400px;
+}
+
+
+table {
+  border-radius: 5px;
+  box-shadow: 0 3px 10px #001315;
+  min-height: 40rem;
+  max-height: 40rem;
+  position: relative;
+  overflow-y: auto;
+  border-spacing: 0;
+}
+
+table thead th {
+  padding: 5px;
+  text-align: left;
+  box-shadow: 0 3px 10px -10px #001315;
+  opacity: 1;
+  background-color: #003f59;
+  z-index: 1;
+  width: 20%;
+  height: 50px;
+  font-size: large;
+  top: 0px;
+  position: sticky;
+}
+
+table tbody td {
+  font-size: .8rem;
+  padding: 5px;
+}
+
+.songTable {
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
+
+.hide {
+  display: none;
+}
+
+th img {
+  display: inline;
+  width: 1em;
+  height: 1em;
+}
+
+.searchResults {
+  margin-left: 25em;
+  border-spacing: 3em;
+  display: inline-block;
+}
+
+.basicSongSearch {
+  display: inline-block;
+}
+
+#tableRow:hover {
+  color: var(--primary);
+  cursor: pointer;
+}
+
+table::-webkit-scrollbar,
+select::-webkit-scrollbar {
+  width: 10px;
+  /* width of the entire scrollbar */
+}
+
+table::-webkit-scrollbar-track,
+select::-webkit-scrollbar-track {
+  background: grey;
+  border-radius: 20px;
+  /* color of the tracking area */
+}
+
+table::-webkit-scrollbar-thumb,
+select::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+  /* color of the scroll thumb */
+  border-radius: 20px;
+  /* roundness of the scroll thumb */
+}
+
+#radarChart {
+  width: 750px;
+  margin-left: 125px;
+}
+
+#snackbar {
+  display: none;
+  min-width: 250px;
+  margin-left: -125px;
+  background: var(--secondary);
+  color: var(--tertiary);
+  text-align: center;
+  border-radius: 5px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  bottom: 30px;
+  font-size: 17px;
+}
+
+/* KeyFrame and Animation inspiration take from https://www.w3schools.com/css/css3_animations.asp */
+
+#snackbar.show {
+  display: block;
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  box-shadow: 0 3px 10px #001315;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+
+}
+
+#radarChart {
+  margin: 0;
+  padding: 15px;
+  border-radius: 1%;
+  box-shadow: 0 3px 10px #001315;
+  min-height: 600px;
+  max-height: 600px;
+  min-width: 900px;
+}
+
+#myChart {
+  min-height: 590px;
+  max-height: 590px;
+}
+
+input[type='text'] {
+
+  justify-self: end;
+  width: 60%;
+  height: 1.2rem;
+}
+
+select {
+  justify-self: end;
+  width: 60%;
+  height: 1.5rem;
+}
+
+.searchGroup {
+  width: 100%;
+  padding: 10px;
+}
+
+.searchGroup[name="basicSongSearchButton"] {
+  text-align: left;
+}
+
+.searchGroup select {
+  justify-self: end;
+}
+
+footer {
+  margin-top: 100px;
+}
+
+ul {
+  list-style-type: "♫ ";
+  
+}
